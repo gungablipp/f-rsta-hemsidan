@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>[Your Practice Name]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #000;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    .landing-cover {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+    .landing-cover img {
+      max-width: 100vw;
+      max-height: 100vh;
+      width: auto;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+      box-shadow: 0 0 32px 0 rgba(0,0,0,0.04);
+      background: #fff;
+    }
+    .down-arrow {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.2rem;
+      color: #111;
+      opacity: 0.4;
+      pointer-events: none;
+      animation: bounce 1.5s infinite;
+      user-select: none;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(8px);}
+      60% { transform: translateX(-50%) translateY(0);}
+    }
+    .header-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 32px 0 16px 0;
+      margin-bottom: 40px;
+      width: 100%;
+      box-sizing: border-box;
+      background: #fff;
+    }
+    .company-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-left: 40px;
+      justify-self: start;
+      grid-column: 1/2;
+      text-align: left;
+    }
+    .contact-link {
+      color: #000;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-left: 40px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .contact-link:hover,
+    .contact-link:focus {
+      color: #444;
+      text-decoration: underline;
+    }
+    nav {
+      grid-column: 3/4;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 40px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li {
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: border-bottom 0.2s;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+    }
+    nav ul li.active, nav ul li:hover {
+      border-bottom: 2px solid #000;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 16px;
+      text-align: center;
+    }
+    h1, h2 {
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .hidden {
+      display: none;
+    }
+    /* Contact page styling */
+    #contact {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 32px 16px;
+      background: #fafafa;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    #contact h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+    #contact-info {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: #222;
+      margin-top: 20px;
+      word-break: break-word;
+      text-align: center;
+      display: inline-block;
+    }
+    @media (max-width: 600px) {
+      .header-bar {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        padding: 24px 0 8px 0;
+        margin-bottom: 24px;
+      }
+      .company-name, .contact-link {
+        margin: 0 0 12px 0;
+        text-align: left;
+        font-size: 1.2rem;
+        grid-row: 1/2;
+      }
+      nav {
+        grid-row: 2/3;
+        margin-right: 0;
+        justify-content: flex-end;
+      }
+      .container {
+        padding: 8px;
+      }
+      #contact {
+        margin: 24px 2vw;
+        padding: 20px 4vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Landing image section -->
+  <div class="landing-cover" id="landingCover" onclick="scrollToMain()">
+    <img src="![image1](image1)" alt="Architectural elevation - landing image">
+    <div class="down-arrow">&#8595;</div>
+  </div>
+  <!-- Main website content -->
+  <div id="mainContent">
+    <div class="header-bar">
+      <!-- Clickable company name/title leading to contact page -->
+      <a href="#" class="contact-link" id="contactTitle">[Your Practice Name]</a>
+      <nav>
+        <ul>
+          <li class="tab active" data-tab="archive">archive</li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container">
+      <section id="home">
+        <h1>Welcome to [Your Practice Name]</h1>
+        <p>
+          We are a modern architectural practice committed to creating inspiring, functional, and sustainable spaces.<br>
+          Explore our archive to see our selected works.
+        </p>
+      </section>
+      <section id="archive" class="hidden">
+        <h2>Archive</h2>
+        <p>
+          <strong>Project 1:</strong> Modern Residential Villa<br>
+          <em>Location:</em> City, Country<br>
+          <em>Description:</em> A light-filled villa with clean lines and seamless indoor-outdoor living.
+        </p>
+        <hr>
+        <p>
+          <strong>Project 2:</strong> Urban Office Complex<br>
+          <em>Location:</em> City, Country<br>
+          <em>Description:</em> Innovative workspace designed for collaboration and sustainability.
+        </p>
+        <hr>
+        <p>
+          <strong>Project 3:</strong> Community Cultural Center<br>
+          <em>Location:</em> City, Country<br>
+          <em>Description:</em> A vibrant hub for culture, education, and community engagement.
+        </p>
+      </section>
+      <section id="contact" class="hidden">
+        <h2>Contact</h2>
+        <div id="contact-info">
+          <strong>[Your Practice Name]</strong><br>
+          1234 Example Street<br>
+          City, Country<br>
+          <br>
+          Email: <a href="mailto:info@example.com">info@example.com</a><br>
+          <br>
+          For project inquiries, collaborations, or general questions, please reach out via email. We look forward to hearing from you!
+        </div>
+      </section>
+    </div>
+  </div>
+  <script>
+    // Scroll from landing image to main content
+    function scrollToMain() {
+      document.getElementById('landingCover').style.display = 'none';
+      document.getElementById('mainContent').scrollIntoView({behavior: 'smooth'});
+    }
+
+    // Archive tab logic
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById('archive').classList.remove('hidden');
+        document.getElementById('home').classList.add('hidden');
+        document.getElementById('contact').classList.add('hidden');
+      });
+    });
+
+    // Contact title click logic
+    document.getElementById('contactTitle').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('contact').classList.remove('hidden');
+      document.getElementById('home').classList.add('hidden');
+      document.getElementById('archive').classList.add('hidden');
+    });
+
+    // Hide main content on load and show landing
+    document.getElementById('mainContent').style.display = 'none';
+    window.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('mainContent').style.display = 'block';
+      document.getElementById('landingCover').style.display = 'flex';
+    });
+    // Optional: hide scroll when landing is visible
+    document.getElementById('landingCover').addEventListener('click', function() {
+      document.body.style.overflow = '';
+      document.getElementById('landingCover').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
